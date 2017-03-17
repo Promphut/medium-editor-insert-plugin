@@ -1609,11 +1609,11 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
                     // added: function ($el) {},
                     // removed: function ($el) {}
                 },
-                grid: {
-                    label: '<span class="fa fa-th"></span>'
-                    // added: function ($el) {},
-                    // removed: function ($el) {}
-                },
+                // grid: {
+                //     label: '<span class="fa fa-th"></span>'
+                //     // added: function ($el) {},
+                //     // removed: function ($el) {}
+                // },
                 full: {
                     label: '<span class="fa fa-window-maximize"></span>'
                     // added: function ($el) {},

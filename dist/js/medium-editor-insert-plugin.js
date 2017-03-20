@@ -2358,23 +2358,7 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
     var pluginName = 'mediumInsert',
         addonName = 'BreakLine', // first char is uppercase
         defaults = {
-            label: '<span class="fa fa-minus"></span>',
-            sorting: function () {
-                var that = this;
-
-                $('.medium-insert-images').sortable({
-                    group: 'medium-insert-images',
-                    containerSelector: '.medium-insert-images',
-                    itemSelector: 'figure',
-                    placeholder: '<figure class="placeholder">',
-                    handle: 'img',
-                    nested: false,
-                    vertical: false,
-                    afterMove: function () {
-                        that.core.triggerInput();
-                    }
-                });
-            },
+            label: '<span class="fa fa-minus"></span>'
         },
         
 
@@ -2410,7 +2394,7 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
      */
 
     BreakLine.prototype.init = function () {
-        console.log('init')
+        //console.log('init')
         this.events();
     };
 
@@ -2421,7 +2405,7 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
      */
 
     BreakLine.prototype.events = function () {
-        console.log('event')
+        //sconsole.log('event')
     };
 
     /**

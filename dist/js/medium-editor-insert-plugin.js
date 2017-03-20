@@ -1798,7 +1798,7 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
             };
         }
 
-        $file.fileupload($.extend(true, {}, this.options.fileUploadOptions, fileUploadOptions));
+        //$file.fileupload($.extend(true, {}, this.options.fileUploadOptions, fileUploadOptions));
 
         $file.click();
     };
@@ -2153,11 +2153,11 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
 
     Images.prototype.deleteFile = function (file) {
         if (this.options.deleteScript) {
-            $.ajax($.extend(true, {}, {
-                url: this.options.deleteScript,
-                type: this.options.deleteMethod || 'POST',
-                data: { file: file }
-            }, this.options.fileDeleteOptions));
+            // $.ajax($.extend(true, {}, {
+            //     url: this.options.deleteScript,
+            //     type: this.options.deleteMethod || 'POST',
+            //     data: { file: file }
+            // }, this.options.fileDeleteOptions));
         }
     };
 
@@ -2349,5 +2349,95 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
     };
 
 })(jQuery, window, document, MediumEditor.util);
+
+;(function ($, window, document, undefined) {
+
+    'use strict';
+
+    /** Default values */
+    var pluginName = 'mediumInsert',
+        addonName = 'BreakLine', // first char is uppercase
+        defaults = {
+            label: '<span class="fa fa-minus"></span>'
+        };
+
+    /**
+     * Custom Addon object
+     *
+     * Sets options, variables and calls init() function
+     *
+     * @constructor
+     * @param {DOM} el - DOM element to init the plugin on
+     * @param {object} options - Options to override defaults
+     * @return {void}
+     */
+
+    function BreakLine (el, options) {
+        this.el = el;
+        this.$el = $(el);
+        this.templates = window.MediumInsert.Templates;
+        this.core = this.$el.data('plugin_'+ pluginName);
+
+        this.options = $.extend(true, {}, defaults, options);
+
+        this._defaults = defaults;
+        this._name = pluginName;
+
+        this.init();
+    }
+
+    /**
+     * Initialization
+     *
+     * @return {void}
+     */
+
+    BreakLine.prototype.init = function () {
+        this.events();
+    };
+
+    /**
+     * Event listeners
+     *
+     * @return {void}
+     */
+
+    BreakLine.prototype.events = function () {
+
+    };
+
+    /**
+     * Get the Core object
+     *
+     * @return {object} Core object
+     */
+    BreakLine.prototype.getCore = function () {
+        return this.core;
+    };
+
+    /**
+     * Add custom content
+     *
+     * This function is called when user click on the addon's icon
+     *
+     * @return {void}
+     */
+
+    BreakLine.prototype.add = function () {
+
+    };
+
+
+    /** Addon initialization */
+
+    $.fn[pluginName + addonName] = function (options) {
+        return this.each(function () {
+            if (!$.data(this, 'plugin_' + pluginName + addonName)) {
+                $.data(this, 'plugin_' + pluginName + addonName, new BreakLine(this, options));
+            }
+        });
+    };
+
+})(jQuery, window, document);
 
 }));

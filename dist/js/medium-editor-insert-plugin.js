@@ -1798,7 +1798,7 @@ this["MediumInsert"]["Templates"]["src/js/templates/images-toolbar.hbs"] = Handl
             };
         }
 
-        //$file.fileupload($.extend(true, {}, this.options.fileUploadOptions, fileUploadOptions));
+        $file.fileupload($.extend(true, {}, this.options.fileUploadOptions, fileUploadOptions));
 
         $file.click();
     };
